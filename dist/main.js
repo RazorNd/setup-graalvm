@@ -88797,7 +88797,7 @@ async function findLatestLibericaJavaVersion(javaVersion) {
 async function findLibericaURL(javaVersion, javaPackage) {
     const release = await getTaggedRelease(LIBERICA_GH_USER, LIBERICA_RELEASES_REPO, LIBERICA_JDK_TAG_PREFIX + javaVersion);
     const platform = determinePlatformPart();
-    const assetPrefix = `${LIBERICA_VM_PREFIX}${determineVariantPart(javaPackage)}openjdk${javaVersion}`;
+    const assetPrefix = `${LIBERICA_VM_PREFIX}${determineVariantPart(javaPackage)}openjdk${semverExports.major(javaVersion)}`;
     const assetSuffix = `-${platform}${GRAALVM_FILE_EXTENSION}`;
     for (const asset of release.assets) {
         if (asset.name.startsWith(assetPrefix) && asset.name.endsWith(assetSuffix)) {
