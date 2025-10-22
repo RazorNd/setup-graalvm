@@ -42,6 +42,7 @@ test('find latest JDK version', async () => {
 test('find asset URL', async () => {
   await expectURL('11.0.22+12', '', 'bellsoft-liberica-vm-openjdk11.0.22')
   await expectURL('17.0.10+13', 'jdk', 'bellsoft-liberica-vm-openjdk17.0.10')
+  await expectURL('25.0.0+37', 'jdk+fx', 'bellsoft-liberica-vm-full-openjdk25')
 
   if (!c.IS_LINUX) {
     // This check can fail on Linux because there's no `jdk+fx` package for aarch64 and/or musl

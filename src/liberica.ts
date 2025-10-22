@@ -52,7 +52,7 @@ export async function findLibericaURL(javaVersion: string, javaPackage: string):
     LIBERICA_JDK_TAG_PREFIX + javaVersion
   )
   const platform = determinePlatformPart()
-  const assetPrefix = `${LIBERICA_VM_PREFIX}${determineVariantPart(javaPackage)}openjdk${javaVersion}`
+  const assetPrefix = `${LIBERICA_VM_PREFIX}${determineVariantPart(javaPackage)}openjdk${semver.major(javaVersion)}`
   const assetSuffix = `-${platform}${c.GRAALVM_FILE_EXTENSION}`
   for (const asset of release.assets) {
     if (asset.name.startsWith(assetPrefix) && asset.name.endsWith(assetSuffix)) {
